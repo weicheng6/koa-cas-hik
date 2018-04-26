@@ -1,0 +1,27 @@
+{
+  "name": "koa-cas-hik",
+  "version": "1.0.0",
+  "description": "NodeJS implement of CAS(Central Authentication Service) client.",
+  "main": "index.js",
+  "author": "weicheng6",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.1.2",
+    "query-string": "^4.1.0",
+    "xml2js": "^0.4.16"
+  },
+  "devDependencies": {
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-session2": "^2.2.5",
+    "koa-views": "^6.0.2",
+    "ejs": "~2.5.5"
+  },
+  "keywords": [
+    "cas",
+    "koa",
+    "hik",
+    "koa-cas-hik",
+    "koa-cas"
+  ]
+}
