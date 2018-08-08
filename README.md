@@ -1,9 +1,9 @@
 # koa-cas-hik
 
-cas client for koa2
+海康威视公安事业部cas client
 
 ## Deprecated
-此cas client为包nodejs-cas的koa版本，其中部分代码按需求进行了改进，依然为标准的cas client，如需使用express,请使用connect-cas2或nodejs-cas。
+此cas client为包nodejs-cas的koa版本，其中部分代码按海康威视公安事业部需求进行了改进，如需使用express,请使用connect-cas2或nodejs-cas。
 demo启动方式为node example/index。
 如果有防火墙或白名单，请确保您的ip在白名单中。
 
@@ -21,6 +21,7 @@ const views = require('koa-views');
 const session = require("koa-session2");
 const Store = require('koa-session2/libs/store.js');  //集群时Store请使用redis或其他实现
 const CasClient = require('../index');
+// const queryString = require('query-string');
 
 const app = module.exports = new Koa();
 const store = new Store();
@@ -39,6 +40,15 @@ const casClient = new CasClient({
     ajaxHeader: 'X-Requested-With',
     // redirect: (ctx, next) =>  {
     //     ctx.response.redirect(ctx.session.lastUrl, 302);
+    // },
+    // loginRedirect: (ctx, params) => {
+    //     let loginPath;
+    //     if(ctx.header['x-forwarded-proto'] == 'https'){
+    //         loginPath = ctx.headers['x-forwarded-proto']+'://' + ctx.header['host'] + '/center/casLogin?' + queryString.stringify(params);
+    //     }else{
+    //         loginPath = config['cas.origin'] + '/center/casLogin?' + queryString.stringify(params);
+    //     }
+    //     ctx.response.redirect(loginPath, 302);
     // },
     ajaxRedirect: (ctx, next) => {
         ctx.body = {
@@ -161,6 +171,10 @@ ajax请求过期时执行的回调函数。
 #### options.redirect(ctx, next) {Function} (Optional, default: null)
 
 设置options.redirect后，用户登录或登录错误时，cas client的不再重定向至默认的last url，如果你不设置正确的重定向方法，路由跳转将发生错误。（请不要轻易设置此项）
+
+#### options.loginRedirect(ctx, params, next) {Function} (Optional, default: null)
+
+设置options.loginRedirect后，可在跳转至cas登录页时，设置在代理情况下的跳转路径（如：https），默认在设置代理情况下跳转至cas登录页的为：ctx.headers['x-forwarded-proto']+'://' + ctx.headers['host'] + options.paths.login + '?' + queryString.stringify(params)。
 
 #### options.sessionKey {String} (Optional, default: 'koa:sess')
 
