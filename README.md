@@ -1,9 +1,9 @@
 # koa-cas-hik
 
-海康威视公安事业部cas client
+cas client for koa2
 
 ## Deprecated
-此cas client为包nodejs-cas的koa版本，其中部分代码按海康威视公安事业部需求进行了改进，如需使用express,请使用connect-cas2或nodejs-cas。
+此cas client为包nodejs-cas的koa版本，其中部分代码按需求进行了改进，依然为标准的cas client，如需使用express,请使用connect-cas2或nodejs-cas。
 demo启动方式为node example/index。
 如果有防火墙或白名单，请确保您的ip在白名单中。
 
