@@ -1,6 +1,6 @@
 {
   "name": "koa-cas-hik",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeJS implement of CAS(Central Authentication Service) client.",
   "main": "index.js",
   "author": "weicheng6",
