@@ -23,20 +23,5 @@
     "hik",
     "koa-cas-hik",
     "koa-cas"
-  ],
-  "directories": {
-    "example": "example",
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://weicheng6@github.com/weicheng6/koa-cas-hik.git"
-  },
-  "bugs": {
-    "url": "https://github.com/weicheng6/koa-cas-hik/issues"
-  },
-  "homepage": "https://github.com/weicheng6/koa-cas-hik#readme"
+  ]
 }
